@@ -50,14 +50,24 @@ class KeywordQueryEventListener(EventListener):
             matches = sorted(matches, key=lambda data: data["matchCount"], reverse=True)
 
         return RenderResultListAction([
-            ExtensionResultItem(
-                icon='images/gitmoji/%s.png' % match['name'],
-                name=match['code'],
-                description=match['description'],
-                on_enter=CopyToClipboardAction(match['emoji']),
-                on_alt_enter=CopyToClipboardAction(match['code'])
-            ) for match in matches
+            self.build_result_item(match, extension) for match in matches
         ])
+
+    def build_result_item(self, match, extension):
+        if extension.preferences['copy_mode'] == 'code':
+            main_action = CopyToClipboardAction(match['code'])
+            alt_action = CopyToClipboardAction(match['emoji'])
+        else:
+            main_action = CopyToClipboardAction(match['emoji'])
+            alt_action = CopyToClipboardAction(match['code'])
+
+        return ExtensionResultItem(
+            icon='images/gitmoji/%s.png' % match['name'],
+            name=match['code'],
+            description=match['description'],
+            on_enter=main_action,
+            on_alt_enter=alt_action
+        )
 
     def count_matches(self, tokens, needles):
         count = 0
