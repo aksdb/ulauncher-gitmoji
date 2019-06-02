@@ -1,0 +1,27 @@
+{
+  "manifest_version": "1",
+  "api_version": "1",
+  "name": "Gitmoji",
+  "description": "Gitmoji extension",
+  "developer_name": "Andreas Schneider",
+  "icon": "images/icon.png",
+  "preferences": [
+    {
+      "id": "gitmoji_kw",
+      "type": "keyword",
+      "name": "Gitmoji",
+      "default_value": "gm"
+    },
+    {
+      "id": "copy_mode",
+      "type": "select",
+      "name": "Copy mode",
+      "description": "Choose what you want to copy into clipboard.",
+      "default_value": "emoji",
+      "options": [
+        "emoji",
+        "code"
+      ]
+    }
+  ]
+}
