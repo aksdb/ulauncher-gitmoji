@@ -1,10 +1,12 @@
 {
-  "manifest_version": "1",
-  "api_version": "1",
+  "required_api_version": "^2.0.0",
   "name": "Gitmoji",
   "description": "Gitmoji extension",
   "developer_name": "Andreas Schneider",
   "icon": "images/icon.png",
+  "options": {
+    "query_debounce": 0.1
+  },
   "preferences": [
     {
       "id": "gitmoji_kw",
