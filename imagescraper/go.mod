@@ -1,8 +1,10 @@
 module gitmojiicons
 
-go 1.12
+go 1.17
+
+require github.com/PuerkitoBio/goquery v1.8.0
 
 require (
-	github.com/PuerkitoBio/goquery v1.5.0
-	golang.org/x/net v0.0.0-20190522155817-f3200d17e092 // indirect
+	github.com/andybalholm/cascadia v1.3.1 // indirect
+	golang.org/x/net v0.0.0-20220114011407-0dd24b26b47d // indirect
 )
